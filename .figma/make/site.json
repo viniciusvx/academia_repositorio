@@ -1,0 +1,10 @@
+{
+  "description": "Discover Central Academias with a modern website showcasing locations, hours, and services, designed for fitness enthusiasts in Corumbá and surrounding areas.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
