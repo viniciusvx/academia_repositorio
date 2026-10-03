@@ -1,0 +1,131 @@
+.lightbox {
+  inset: 0;
+  position: fixed;
+  z-index: 500;
+}
+
+.lightbox__backdrop {
+  animation: fadeIn 0.4s ease both;
+  backdrop-filter: blur(0.6rem);
+  background: rgb(6 6 7 / 93%);
+  inset: 0;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox.is-closing .lightbox__backdrop {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.lightbox__stage {
+  inset: 0;
+  position: absolute;
+  touch-action: none;
+  user-select: none;
+}
+
+.lightbox__figure {
+  background: var(--black);
+  box-shadow: 0 2rem 5rem rgb(0 0 0 / 55%);
+  overflow: hidden;
+  position: fixed;
+}
+
+.lightbox__figure img {
+  animation: imgIn 0.5s var(--ease) both;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  width: 100%;
+}
+
+@keyframes imgIn {
+  from {
+    opacity: 0.4;
+  }
+}
+
+.lightbox__close {
+  align-items: center;
+  animation: fadeIn 0.5s 0.15s ease both;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  height: 3.2rem;
+  justify-content: center;
+  position: absolute;
+  right: clamp(0.8rem, 3vw, 2rem);
+  top: clamp(0.8rem, 3vw, 2rem);
+  transition: background 0.2s ease, transform 0.3s var(--ease);
+  width: 3.2rem;
+}
+
+.lightbox__close:hover {
+  background: var(--red);
+  transform: rotate(90deg);
+}
+
+.lightbox__bar {
+  align-items: center;
+  animation: fadeIn 0.5s 0.2s ease both;
+  bottom: clamp(1rem, 3vw, 2rem);
+  color: var(--white);
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.lightbox.is-closing .lightbox__bar,
+.lightbox.is-closing .lightbox__close {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox__bar p {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 9rem;
+  text-align: center;
+}
+
+.lightbox__bar strong {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lightbox__bar span {
+  color: rgb(255 255 255 / 55%);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+}
+
+.lightbox__bar button {
+  align-items: center;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 50%;
+  display: flex;
+  height: 3.2rem;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.3s var(--ease);
+  width: 3.2rem;
+}
+
+.lightbox__bar button:hover {
+  background: var(--red);
+  transform: scale(1.08);
+}
